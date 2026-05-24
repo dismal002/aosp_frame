@@ -1,0 +1,49 @@
+From 096317bc988a0cadee4011fd941cfde2dfee7a27 Mon Sep 17 00:00:00 2001
+From: Rolan <fryerolan@gmail.com>
+Date: Sun, 24 May 2026 14:28:21 -0500
+Subject: [PATCH] Update rockchip common tree
+
+---
+ device.mk                       | 1 -
+ scripts/fstab_tools/fstab.in    | 4 ++--
+ scripts/fstab_tools/fstab_go.in | 4 ++--
+ 3 files changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/device.mk b/device.mk
+index cd0bf14..fae8817 100644
+--- a/device.mk
++++ b/device.mk
+@@ -1428,4 +1428,3 @@ PRODUCT_COPY_FILES += \
+     vendor/rockchip/common/bin/$(TARGET_ARCH)/parted:$(PRODUCT_OUT)/$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/parted
+ 
+ # add libmraa so
+-$(call inherit-product-if-exists, vendor/radxa/libmraa/libmraa.mk)
+diff --git a/scripts/fstab_tools/fstab.in b/scripts/fstab_tools/fstab.in
+index 10c3d2e..8f74e06 100755
+--- a/scripts/fstab_tools/fstab.in
++++ b/scripts/fstab_tools/fstab.in
+@@ -23,6 +23,6 @@ ${_block_prefix}system_ext /system_ext  ext4 ro,barrier=1 ${_flags},first_stage_
+ # For sdmmc
+ /devices/platform/${_sdmmc_device}/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto
+ #  Full disk encryption has less effect on rk3326, so default to enable this.
+-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev${_sync_flags},discard,reserve_root=32768,resgid=1065 latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,quota,formattable,reservedsize=128M,checkpoint=fs
++#/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev${_sync_flags},discard,reserve_root=32768,resgid=1065 latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,quota,formattable,reservedsize=128M,checkpoint=fs
+ # for ext4
+-#/dev/block/by-name/userdata    /data      ext4    discard,noatime,nosuid,nodev${_sync_flags},noauto_da_alloc,data=ordered,user_xattr,barrier=1    latemount,wait,formattable,check,fileencryption=software,quota,reservedsize=128M,checkpoint=block
++/dev/block/by-name/userdata    /data      ext4    discard,noatime,nosuid,nodev${_sync_flags},noauto_da_alloc,data=ordered,user_xattr,barrier=1    latemount,wait,formattable,check,fileencryption=software,quota,reservedsize=128M,checkpoint=block
+diff --git a/scripts/fstab_tools/fstab_go.in b/scripts/fstab_tools/fstab_go.in
+index 65dcf65..ab058b0 100755
+--- a/scripts/fstab_tools/fstab_go.in
++++ b/scripts/fstab_tools/fstab_go.in
+@@ -17,6 +17,6 @@ ${_block_prefix}system_ext  /system_ext ext4 ro,barrier=1 ${_flags},first_stage_
+ # For sdmmc
+ /devices/platform/${_sdmmc_device}/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto
+ #  Full disk encryption has less effect on rk3326, so default to enable this.
+-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard${_sync_flags},reserve_root=32768,resgid=1065 latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,quota,formattable,reservedsize=128M,checkpoint=fs
++#/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard${_sync_flags},reserve_root=32768,resgid=1065 latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,quota,formattable,reservedsize=128M,checkpoint=fs
+ # for ext4
+-#/dev/block/by-name/userdata    /data      ext4    discard,noatime,nosuid,nodev,noauto_da_alloc${_sync_flags},data=ordered,user_xattr,barrier=1    latemount,wait,formattable,check,fileencryption=software,quota,reservedsize=128M,checkpoint=block
++/dev/block/by-name/userdata    /data      ext4    discard,noatime,nosuid,nodev,noauto_da_alloc${_sync_flags},data=ordered,user_xattr,barrier=1    latemount,wait,formattable,check,fileencryption=software,quota,reservedsize=128M,checkpoint=block
+-- 
+2.47.3
+

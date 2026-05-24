@@ -1,0 +1,25 @@
+From 13de97715c5fdd1fc19ea1e89b1809de1b5c285e Mon Sep 17 00:00:00 2001
+From: Rolan <fryerolan@gmail.com>
+Date: Sun, 24 May 2026 14:33:17 -0500
+Subject: [PATCH] Enable navigation bar
+
+---
+ core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+index c1e3026ee45c..588c943c42cf 100644
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -2029,7 +2029,7 @@
+ 
+     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+          autodetected from the Configuration. -->
+-    <bool name="config_showNavigationBar">false</bool>
++    <bool name="config_showNavigationBar">true</bool>
+ 
+     <!-- Whether action menu items should be displayed in ALLCAPS or not.
+          Defaults to true. If this is not appropriate for specific locales
+-- 
+2.47.3
+

@@ -1,0 +1,27 @@
+# /sys/class/wakeup/
+genfscon sysfs /devices/platform/10106400.vdpu/wakeup                          u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/10106000.vepu/wakeup                          u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/20072000.i2c/i2c-0/0-001a/wakeup              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/20072000.i2c/i2c-0/0-001a/rk808-rtc/wakeup         u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/20072000.i2c/i2c-0/0-001a/rk805-pwrkey/wakeup      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/20072000.i2c/i2c-0/0-001a/rk808-rtc/rtc/rtc0/wakeup8                           u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/20072000.i2c/i2c-0/0-001a/rk816-battery/power_supply/ac/wakeup4                u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/20072000.i2c/i2c-0/0-001a/rk816-battery/power_supply/usb/wakeup5               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/20072000.i2c/i2c-0/0-001a/rk816-battery/power_supply/battery/wakeup3           u:object_r:sysfs_wakeup:s0
+
+# /sys/class/rtc
+
+# /sys/class/devfreq
+genfscon sysfs /devices/platform/10090000.gpu/devfreq/10090000.gpu/governor         u:object_r:sysfs_dmc:s0
+
+# /sys/class/extcon/
+genfscon sysfs /devices/platform/20030000.codec/extcon                              u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/platform/20008000.syscon/20008000.syscon:usb2-phy@17c/extcon        u:object_r:sysfs_extcon:s0
+
+# /sys/class/net
+
+# /sys/class/block/
+genfscon sysfs /devices/platform/1021c000.dwmmc/mmc_host/mmc1/mmc1:0001/block/mmcblk1       u:object_r:sysfs_mmc:s0
+
+# nvmem
+genfscon sysfs /devices/platform/20090000.efuse/rockchip-efuse0/nvmem                       u:object_r:sysfs_dmc:s0
